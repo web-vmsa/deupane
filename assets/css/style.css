@@ -427,6 +427,12 @@ a:hover {
     color: #14E2A4;
     margin-top: 20px;
 }
+.h3-vermelho h3 {
+    font-family: 'robotoregular';
+    font-size: 24px;
+    color: #ED3912;
+    margin-top: 20px;
+}
 .nota-geral {
     display: flex;
     align-items: center;

@@ -42,13 +42,25 @@
 			$(".convite").hide();
 			$(".convite-entregue").hide();
 
+			$(".decline").on("click", function(){
+
+				$(".convite-recusado").fadeOut(function(){
+
+					window.location.href="http://localhost/deupane.com.br/";
+
+				});
+
+			});
+
 			$(".confirm").on("click", function(){
 
 				$(".busca").fadeOut(function(){
 
 					$(".convite").fadeIn().delay(10000).fadeOut(function(){
 
-						$(".convite-entregue").fadeIn();
+						//$(".convite-aceito").fadeIn();
+
+						$(".convite-recusado").fadeIn();
 
 					});
 
@@ -110,7 +122,7 @@
 	</div>
 
 	<!-- Resultado: Convite aceito -->
-	<div class="convite-entregue">
+	<div class="convite-entregue convite-aceito">
 
 		<div class="caixa-resultado">
 			
@@ -155,6 +167,45 @@
 				<p>5,0</p>
 
 			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Resultado: Convite Recusado -->
+	<div class="convite-entregue convite-recusado">
+
+		<div class="caixa-resultado h3-vermelho">
+			
+			<img alt="Convite recusado" src="<?php echo BASE_URL; ?>assets/images/decline.svg">
+
+			<h3>Recusado</h3>
+
+		</div>
+		
+		<div class="buscar recusado">	
+
+			<img alt="invitation-svg" src="<?php echo BASE_URL; ?>assets/images/invitation.svg">
+			
+			<p>Seu convite foi recusado, Mark não está a caminho!</p>
+
+		</div>
+
+		<div class="actions">
+
+			<div class="usuario">
+				
+				<div class="mecanico">
+				
+					<img alt="Usuário: Mark Zuckeberg" src="<?php echo BASE_URL; ?>assets/images/IMG-20200206-WA0016.jpg">
+
+				</div>
+
+			</div>
+
+			<p>Mark Zuckeberg</p>
+
+			<div class="botao decline"><p>SAIR</p></div>
 
 		</div>
 
