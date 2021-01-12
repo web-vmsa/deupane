@@ -58,9 +58,13 @@
 
 					$(".convite").fadeIn().delay(10000).fadeOut(function(){
 
-						//$(".convite-aceito").fadeIn();
+						$(".convite-aceito").fadeIn().delay(10000).fadeOut(function(){
 
-						$(".convite-recusado").fadeIn();
+							window.location.href="http://localhost/deupane.com.br/cliente/avaliacao/";
+
+						});
+
+						//$(".convite-recusado").fadeIn();
 
 					});
 

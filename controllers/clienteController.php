@@ -9,5 +9,14 @@ class clienteController extends controller {
 		$this->loadView('cliente', $dados);
 
 	}
+
+	public function avaliacao(){
+
+
+		$dados = array();
+
+		$this->loadView('avaliacao', $dados);
+
+	}
 	
 }
