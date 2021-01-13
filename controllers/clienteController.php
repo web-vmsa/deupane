@@ -18,5 +18,14 @@ class clienteController extends controller {
 		$this->loadView('avaliacao', $dados);
 
 	}
+
+	public function compartilhe(){
+
+
+		$dados = array();
+
+		$this->loadView('compartilhe', $dados);
+
+	}
 	
 }

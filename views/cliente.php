@@ -46,7 +46,7 @@
 
 				$(".convite-recusado").fadeOut(function(){
 
-					window.location.href="http://localhost/deupane.com.br/";
+					window.location.href="<?php echo BASE_URL; ?>";
 
 				});
 
@@ -60,7 +60,7 @@
 
 						$(".convite-aceito").fadeIn().delay(10000).fadeOut(function(){
 
-							window.location.href="http://localhost/deupane.com.br/cliente/avaliacao/";
+							window.location.href="<?php echo BASE_URL; ?>cliente/avaliacao/";
 
 						});
 

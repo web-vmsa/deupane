@@ -51,13 +51,9 @@
 
 				} else {
 
-					$(".alerta p").html("Obrigado pela sua avaliação! &#128541; Redirecionando...");
+					$(".convite").fadeOut(function(){
 
-					$(".alerta").fadeIn();
-
-					$(".convite").delay(6000).fadeOut(function(){
-
-						window.location.href="<?php echo BASE_URL; ?>";
+						window.location.href="<?php echo BASE_URL; ?>cliente/compartilhe";
 
 					});
 

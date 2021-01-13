@@ -102,7 +102,15 @@
 
 		<h2>DeuPane</h2>
 
-		<h3>Deu Pane? Resolva seu problema!</h3>
+		<h3>Compartilhe nosso o App!</h3>
+
+		<div class="share">
+			
+			<a href="https://api.whatsapp.com/send?text=<?php echo BASE_URL; ?>"><img alt="Compartilhe no Whatsapp!" src="<?php echo BASE_URL; ?>assets/images/whatsapp.svg"></a>
+			<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo BASE_URL; ?>"><img alt="Compartilhe no Linkedin!" src="<?php echo BASE_URL; ?>assets/images/linkedin.svg"></a>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo BASE_URL; ?>"><img alt="Compartilhe no Facebook!" src="<?php echo BASE_URL; ?>assets/images/facebook.svg"></a>
+
+		</div>
 
 		<div class="buscar">	
 
