@@ -33,7 +33,7 @@ $(document).ready(function(){
 				data:dados_login,
 				success:function(result){
 					if (result == 1) {
-						window.location.href=raiz+'home/login'
+						window.location.href=raiz+'usuario'
 					} else {
 						$(".alerta p").html("Opa, este usuário não existe!");
 						$(".alerta").fadeIn().delay(6000).fadeOut();

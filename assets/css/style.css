@@ -446,6 +446,8 @@ a:hover {
     flex-direction: column;
 }
 .nota-geral p {
+    font-size: 18px;
+    font-family: 'robotomedium';
     color: #EBE215;
 }
 .stars {
@@ -758,6 +760,114 @@ a:hover {
 .perfil-icon img {
     widows: 50px;
     height: 50px;
+}
+
+
+
+/* Guias do Painel */
+.painel {
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: auto;
+    padding-bottom: 30px;
+}
+.guia-painel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.div-painel {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+    cursor: pointer;
+}
+.div-painel p {
+    font-size: 18px;
+    font-family: 'robotomedium';
+    color: #1AD7CB;
+}
+.painel .logo {
+    background-color: #1AD7CB;
+}
+.lado-sair p {
+    color: #ED3912;
+}
+.div-painel img {
+    width: 35px;
+    height: 35px;
+}
+.gira-img img {
+    transform: rotate(180deg);
+}
+.painel h3 {
+    font-family: 'robotoregular';
+    font-size: 24px;
+    color: #1AD7CB;
+    margin-top: 20px;
+}
+.painel a {
+    font-size: 18px;
+    font-family: 'robotolight';
+    color: #15201F;
+    margin-top: 10px;
+}
+
+
+
+/* Notificações */
+.notificacoes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 70px;
+}
+.notificacao {
+    background-color: #1AD7CB;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    cursor: pointer;
+}
+.notificacao-vermelha {
+    background-color: #ED3912;
+}
+.notificacao img {
+    width: 25px;
+    height: 25px;
+}
+.notificacao p {
+    font-size: 18px;
+    font-family: 'robotomedium';
+    color: white;
+}
+.notificacao span {
+    color: #E0E0E0;
+    font-size: 14px;
+}
+.tipo-noti {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tipo-noti img {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
 }
 
 
