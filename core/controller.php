@@ -7,7 +7,7 @@ class controller {
 
 	}	
 
-	/*
+	
 	public function loadTemplate($viewName, $viewData = array()) {
 		require 'views/template.php';
 	}
@@ -16,6 +16,5 @@ class controller {
 		extract($viewData);
 		require 'views/'.$viewName.'.php';
 	}
-	*/
 
 }

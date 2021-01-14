@@ -6,7 +6,7 @@ class clienteController extends controller {
 
 		$dados = array();
 
-		$this->loadView('cliente', $dados);
+		$this->loadTemplate('cliente', $dados);
 
 	}
 
@@ -15,7 +15,7 @@ class clienteController extends controller {
 
 		$dados = array();
 
-		$this->loadView('avaliacao', $dados);
+		$this->loadTemplate('avaliacao', $dados);
 
 	}
 
@@ -24,7 +24,7 @@ class clienteController extends controller {
 
 		$dados = array();
 
-		$this->loadView('compartilhe', $dados);
+		$this->loadTemplate('compartilhe', $dados);
 
 	}
 	
