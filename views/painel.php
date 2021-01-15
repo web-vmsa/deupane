@@ -8,7 +8,7 @@
 		
 		<div class="guia-painel">
 
-			<div class="div-painel gira-img lado-sair">
+			<div class="div-painel gira-img lado-sair sair-guia">
 
 				<img alt="Voltar icon" src="<?php echo BASE_URL; ?>assets/images/arrow_red.svg">
 
@@ -16,7 +16,7 @@
 
 			</div>
 			
-			<div class="div-painel">
+			<div class="div-painel editar-guia">
 
 				<p>editar</p>
 

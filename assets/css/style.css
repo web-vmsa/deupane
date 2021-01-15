@@ -111,6 +111,13 @@ a:hover {
 
 
 /* CSS */
+.fundo-cinza {
+    background-color: #F2F2F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .abre {
     display: flex;
     justify-content: flex-start;
@@ -818,6 +825,26 @@ a:hover {
     color: #15201F;
     margin-top: 10px;
 }
+.painel-edit .guia-painel {
+    width: 700px;
+}
+.painel-edit .buscar {
+    margin-top: 50px;
+}
+#form_edit .usuario {
+    margin-top: -520px;
+}
+.edit-foto {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    z-index: 2;
+}
+.edit-foto img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
 
 
 
@@ -868,6 +895,85 @@ a:hover {
     width: 40px;
     height: 40px;
     margin-right: 20px;
+}
+
+
+
+/* Edita endereço */
+.edit-endereco {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 420px;
+}
+.edit-endereco img {
+    width: 100px;
+    height: 100px;
+    margin-top: 150px;
+    cursor: pointer;
+}
+.edit-endereco h3 {
+    font-family: 'robotoregular';
+    font-size: 24px;
+    color: #1AD7CB;
+    margin-top: 20px;
+}
+
+
+
+/* Actions */
+.actions-endereco {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #F2F2F2;
+    flex-direction: column;
+}
+.actions-endereco img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+.actions-endereco p {
+    font-size: 18px;
+    font-family: 'robotomedium';
+    color: black;
+}
+.botoes-endereco {
+    width: 450px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.confirm-endereco {
+    width: 210px;
+    height: 45px;
+    background-color: #1AD7CB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.decline-endereco {
+    width: 210px;
+    height: 45px;
+    background-color: #ED3912;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.botoes-endereco p {
+    font-size: 18px;
+    color: white;
+    font-family: 'robotomedium';
 }
 
 

@@ -10,6 +10,85 @@ $(document).ready(function(){
 		var raiz = "http://localhost/deupane.com.br/";
 	}
 
+
+
+	/* Sair */
+	$(".sair-guia").on("click", function(){
+
+		$(".painel").fadeOut(function(){
+
+			window.location.href=raiz;
+
+		});
+
+	});
+	/* */
+
+
+
+	/* Editar */
+	$(".editar-guia").on("click", function(){
+
+		$(".painel").fadeOut(function(){
+
+			window.location.href=raiz+"usuario/edit";
+
+		});
+
+	});
+	/* */
+
+
+
+	/* Home */
+	$(".home-guia").on("click", function(){
+
+		$(".painel-edit").fadeOut(function(){
+
+			window.location.href=raiz+"usuario";
+
+		});
+
+	});
+	/* */
+
+
+
+	/* Endereço */
+	$("#endereco").on("click", function(){
+
+		$(".painel-edit").fadeOut(function(){
+
+			window.location.href=raiz+"usuario/endereco";
+
+		});
+
+	});
+	/* */
+
+
+
+	/* Altera imagem */
+	function readURL(input) {
+
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+
+		        reader.onload = function (e) {
+		            $('#altera-img').attr('src', e.target.result);
+		        }
+
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+	$("#imagem-perfil").change(function(){
+		readURL(this);
+	});
+	/* */
+
+
+
 	/* Formulário de Login */
 	$("#form_login").submit(function(e){
 
@@ -85,5 +164,36 @@ $(document).ready(function(){
 
 	});
 	/* */
+
+
+
+	/* Formulário de Edição */
+	$("#form_edit").submit(function(e){
+
+		e.preventDefault();
+
+		var form = $("#form_edit")[0];
+		var data_edit = new FormData(form);
+
+		$.ajax({
+			type:'POST',
+			url:raiz+'ajax/edit_info',
+			data:data_edit,
+			contentType:false,
+			processData:false,
+			success:function(result){
+				if (result == 1) {
+					$(".alerta p").html("Opa, um erro interno impediu a ação de ser executada!");
+					$(".alerta").fadeIn().delay(6000).fadeOut();
+				} else {
+					$(".alerta p").html("Seus dados foram atualizados com sucesso!");
+					$(".alerta").fadeIn().delay(6000).fadeOut();
+				}
+			}
+		});
+	});
+	/* */
+
+
 
 });

@@ -9,5 +9,32 @@ class usuarioController extends controller {
 		$this->loadTemplate('painel', $dados);
 
 	}
+
+	public function edit(){
+
+
+		$dados = array();
+
+		$this->loadTemplate('edit', $dados);
+
+	}
+
+	public function endereco(){
+
+
+		$dados = array();
+
+		$this->loadTemplate('endereco', $dados);
+
+	}
+
+	public function enderecoResultado(){
+
+
+		$dados = array();
+
+		$this->loadTemplate('enderecoResultado', $dados);
+
+	}
 	
 }

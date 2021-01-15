@@ -52,5 +52,24 @@ class ajaxController extends controller {
 		$this->loadView('ajax', $dados);
 
 	}
+
+	public function edit_info(){
+
+
+		$dados = array();
+
+		if($_FILES['imagem-perfil']['size'] == 0) {
+
+			$dados['resultado'] = 1;
+
+		} else {
+
+			$dados['resultado'] = 0;
+
+		}
+
+		$this->loadView('ajax', $dados);
+
+	}
 	
 }
