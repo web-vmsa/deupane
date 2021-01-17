@@ -1020,3 +1020,125 @@ a:hover {
 .recusado img {
     cursor: default;
 }
+
+
+
+/* 
+  ##Device = Mobile
+  ##Screen = 425px to mobile resolution
+*/
+
+@media screen and (max-width: 425px) and (min-width: 421px) {
+  
+  /* CSS */
+  .buscar {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-top-right-radius: 20%;
+    border-top-left-radius: 20%;
+  }
+  .buscar p {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .busca iframe {
+    width: 350px;
+    height: 400px;
+  }
+  .botao {
+    width: 365px;
+  }
+  .caixa-form input {
+    width: 365px;
+  }
+  .caixa-form button {
+    width: 370px;
+  }
+  .buscar-avalia {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-top-right-radius: 20%;
+    border-top-left-radius: 20%;
+  }
+  .actions p {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .opcoes-form {
+    width: 335px;
+  }
+  .painel {
+    width: 350px;
+  }
+  .painel-edit .guia-painel {
+    width: 350px;
+  }
+  .notificacao {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .botoes-endereco {
+    width: 365px;
+  }
+  .confirm-endereco {
+    width: 175px;
+  }
+  .decline-endereco {
+    width: 175px;
+  }
+
+}
+
+
+
+/* 
+  ##Device = Pixel 2 XL
+  ##Screen = 411px to mobile resolution
+*/
+
+@media screen and (max-width: 414px) and (min-width: 411px) {
+  
+  /* CSS */
+  
+}
+
+
+
+/* 
+  ##Device = Iphone 6/7/8
+  ##Screen = 375px to mobile resolution
+*/
+
+@media screen and (max-width: 375px) and (min-width: 371px) {
+  
+  /* CSS */
+  
+}
+
+
+
+/* 
+  ##Device = Galaxy S5
+  ##Screen = 360px to mobile resolution
+*/
+
+@media screen and (max-width: 360px) and (min-width: 356px) {
+  
+  /* CSS */
+  
+}
+
+
+
+/* 
+  ##Device = Iphone 5/SE
+  ##Screen = 320px to mobile resolution
+*/
+
+@media screen and (max-width: 320px) {
+  
+  /* CSS */
+  
+}

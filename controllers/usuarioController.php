@@ -6,7 +6,7 @@ class usuarioController extends controller {
 
 		$dados = array();
 
-		$this->loadTemplate('painel', $dados);
+		$this->loadView('painel', $dados);
 
 	}
 
@@ -34,6 +34,24 @@ class usuarioController extends controller {
 		$dados = array();
 
 		$this->loadTemplate('enderecoResultado', $dados);
+
+	}
+
+	public function trabalho(){
+
+
+		$dados = array();
+
+		$this->loadTemplate('trabalho', $dados);
+
+	}
+
+	public function trabalhoFinalizado(){
+
+
+		$dados = array();
+
+		$this->loadTemplate('trabalhoFinalizado', $dados);
 
 	}
 	

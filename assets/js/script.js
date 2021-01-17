@@ -68,6 +68,22 @@ $(document).ready(function(){
 
 
 
+	/* Redirect */
+	$(".notificacao").on("click", function(){
+
+		var redirect = $(this).data("redirect");
+
+		$(".painel").fadeOut(function(){
+
+			window.location.href=raiz+"usuario/"+redirect;
+
+		});
+
+	});
+	/* */
+
+
+
 	/* Altera imagem */
 	function readURL(input) {
 
