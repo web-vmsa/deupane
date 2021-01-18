@@ -1222,7 +1222,7 @@ a:hover {
     width: 305px;
   }
   .painel-edit .guia-painel {
-    width: 350px;
+    width: 305px;
   }
   .notificacao {
     padding-top: 20px;
@@ -1255,6 +1255,80 @@ a:hover {
 @media screen and (max-width: 360px) and (min-width: 356px) {
   
   /* CSS */
+  .buscar {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+  }
+  .buscar p {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .busca iframe {
+    width: 320px;
+    height: 370px;
+  }
+  .busca h3 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .abre h3 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .botao {
+    width: 330px;
+  }
+  .caixa-form input {
+    width: 330px;
+  }
+  .caixa-form button {
+    width: 333px;
+  }
+  .buscar-avalia {
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+  }
+  .actions p {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .opcoes-form {
+    width: 315px;
+  }
+  .painel {
+    width: 305px;
+  }
+  .painel-edit .guia-painel {
+    width: 305px;
+  }
+  .notificacao {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  .botoes-endereco {
+    width: 330px;
+  }
+  .confirm-endereco {
+    width: 155px;
+  }
+  .decline-endereco {
+    width: 155px;
+  }
+  .alerta p {
+    margin-left: 7px;
+  }
+  .tooltip-text {
+    width: 312px;
+  }
+  .tooltip {
+    width: 312px;
+  }
   
 }
 
