@@ -37,12 +37,24 @@ class ajaxController extends controller {
 			$email = addslashes($_POST['email']);
 			$senha = addslashes($_POST['senha']);
 
-			if ($email == "vmsa03@gmail.com") {
+			$usuario = new Usuario();
+			$usuario->email = $email;
+			$existe = $usuario->get_usuario();
+
+			if ($existe == true) {
 				
 				$dados['resultado'] = 0;
 
 			} else {
 
+				$novo_usuario = new Usuario();
+				$novo_usuario->email = $email;
+				$novo_usuario->senha = md5($senha);
+				$novo_usuario->chave_registro = md5($email.$senha);
+				$novo_usuario->data_entrou = date("Y/m/d");
+				$novo_usuario->status = "1";
+				$novo_usuario->registro();
+				
 				$dados['resultado'] = 1;
 
 			}

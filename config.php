@@ -5,13 +5,13 @@ $config = array();
 
 if (ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/deupane.com.br/");
-	$config['dbname'] = 'politizeesocialize';
+	$config['dbname'] = 'deupane.com.br';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 } else {
 	define("BASE_URL", "http://localhost/deupane.com.br/");
-	$config['dbname'] = 'politizeesocialize';
+	$config['dbname'] = 'deupane.com.br';
 	$config['host'] = 'localhost';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
