@@ -3,8 +3,13 @@
 class Usuario extends model {
 
 	public $id;
+	public $nome;
+	public $foto;
 	public $email;
 	public $senha;
+	public $cep;
+	public $telefone;
+	public $caixa_postal;
 	public $chave_registro;
 	public $data_entrou;
 	public $status;
@@ -56,6 +61,63 @@ class Usuario extends model {
 		$sql = "UPDATE usuarios SET status = :status WHERE id = :id";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(":status", $this->status);
+		$sql->bindValue(":id", $this->id);
+		$sql->execute();
+
+	}
+
+	public function login(){
+
+		$sql = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha AND status = :status";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":email", $this->email);
+		$sql->bindValue(":senha", $this->senha);
+		$sql->bindValue(":status", $this->status);
+		$sql->execute();
+		if ($sql->rowCount() > 0) {
+			return $sql->fetch();
+		} else {
+			return false;
+		}
+
+	}
+
+	public function get_dados(){
+
+		$sql = "SELECT * FROM usuarios WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":id", $this->id);
+		$sql->execute();
+		if ($sql->rowCount() > 0) {
+			return $sql->fetch();
+		} else {
+			return false;
+		}
+
+	}
+
+	public function update_usuario(){
+
+		$sql = "UPDATE usuarios SET nome = :nome, cep = :cep, telefone = :telefone, caixa_postal = :caixa_postal WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":nome", $this->nome);
+		$sql->bindValue(":cep", $this->cep);
+		$sql->bindValue(":telefone", $this->telefone);
+		$sql->bindValue(":caixa_postal", $this->caixa_postal);
+		$sql->bindValue(":id", $this->id);
+		$sql->execute();
+
+	}
+
+	public function update_foto(){
+
+		$sql = "UPDATE usuarios SET nome = :nome, foto = :foto, cep = :cep, telefone = :telefone, caixa_postal = :caixa_postal WHERE id = :id";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":nome", $this->nome);
+		$sql->bindValue(":foto", $this->foto);
+		$sql->bindValue(":cep", $this->cep);
+		$sql->bindValue(":telefone", $this->telefone);
+		$sql->bindValue(":caixa_postal", $this->caixa_postal);
 		$sql->bindValue(":id", $this->id);
 		$sql->execute();
 

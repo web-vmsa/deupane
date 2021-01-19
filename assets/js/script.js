@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 		$(".painel").fadeOut(function(){
 
-			window.location.href=raiz;
+			window.location.href=raiz+"home/logout";
 
 		});
 
@@ -199,7 +199,7 @@ $(document).ready(function(){
 			processData:false,
 			success:function(result){
 				if (result == 1) {
-					$(".alerta p").html("Opa, um erro interno impediu a ação de ser executada!");
+					$(".alerta p").html("Sua foto e seus dados foram atualizados com sucesso!");
 					$(".alerta").fadeIn().delay(6000).fadeOut();
 				} else {
 					$(".alerta p").html("Seus dados foram atualizados com sucesso!");

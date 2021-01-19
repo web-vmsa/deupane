@@ -9,10 +9,18 @@ class ajaxController extends controller {
 		if (!empty($_POST['email']) && !empty($_POST['senha'])) {
 			
 			$email = addslashes($_POST['email']);
-			$senha = addslashes($_POST['senha']);
+			$senha = md5(addslashes($_POST['senha']));
 
-			if ($email == "vmsa03@gmail.com" && $senha == "123") {
+			$login = new Usuario();
+			$login->email = $email;
+			$login->senha = $senha;
+			$login->status = "2";
+			$verifica = $login->login();
+
+			if ($verifica == true) {
 				
+				$_SESSION['id'] = $verifica['id'];
+
 				$dados['resultado'] = 1;
 
 			} else {
@@ -72,11 +80,49 @@ class ajaxController extends controller {
 
 		if($_FILES['imagem-perfil']['size'] == 0) {
 
-			$dados['resultado'] = 1;
+			$id = $_SESSION['id'];
+			$nome = htmlspecialchars($_POST['nome']);
+			$cep = htmlspecialchars($_POST['cep']);
+			$telefone = htmlspecialchars($_POST['telefone']);
+			$caixa_postal = htmlspecialchars($_POST['caixa_postal']);
+
+			$edita = new Usuario();
+			$edita->id = $id;
+			$edita->nome = $nome;
+			$edita->cep = $cep;
+			$edita->telefone = $telefone;
+			$edita->caixa_postal = $caixa_postal;
+			$edita->update_usuario();
+
+			$dados['resultado'] = 0;
 
 		} else {
 
-			$dados['resultado'] = 0;
+			$id = $_SESSION['id'];
+			$nome = htmlspecialchars($_POST['nome']);
+			$cep = htmlspecialchars($_POST['cep']);
+			$telefone = htmlspecialchars($_POST['telefone']);
+			$caixa_postal = htmlspecialchars($_POST['caixa_postal']);
+
+			$extensao = pathinfo($_FILES['imagem-perfil']['name'],  PATHINFO_EXTENSION);
+			$pasta = "users/images/"; 
+			$temporario = $_FILES['imagem-perfil']['tmp_name'];
+			$novoNome = uniqid().".$extensao";
+
+			move_uploaded_file($temporario, $pasta.$novoNome);
+
+			$foto = $novoNome;
+
+			$edita = new Usuario();
+			$edita->id = $id;
+			$edita->nome = $nome;
+			$edita->foto = $foto;
+			$edita->cep = $cep;
+			$edita->telefone = $telefone;
+			$edita->caixa_postal = $caixa_postal;
+			$edita->update_foto();
+
+			$dados['resultado'] = 1;
 
 		}
 

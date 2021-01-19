@@ -1,3 +1,16 @@
+<?php
+	
+	if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+		# code...
+	} else {
+		echo '
+			<script type="text/javascript">
+				window.location.href="'.BASE_URL.'";
+			</script>
+		';
+	}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,16 +80,32 @@
 		<div class="logo">
 			
 			<div class="mecanico">
+
+				<?php if($usuario['foto'] == ""): ?>
 				
-				<img alt="Usuário: Mark Zuckeberg" src="<?php echo BASE_URL; ?>assets/images/IMG-20200206-WA0016.jpg">
+				<img alt="Usuário: <?php echo $usuario['nome']; ?>" src="<?php echo BASE_URL; ?>users/images/unnamed.png">
+
+				<?php else: ?>
+
+				<img alt="Usuário: <?php echo $usuario['nome']; ?>" src="<?php echo BASE_URL; ?>users/images/<?php echo $usuario['foto']; ?>">
+
+				<?php endif; ?>
 
 			</div>
 
 		</div>
 
-		<h3>Mark Zuckeberg</h3>
+		<?php if($usuario['nome'] == ""): ?>
 
-		<a href="">vmsa03@gmail.com</a>
+		<h3>Sem nome</h3>
+
+		<?php else: ?>
+
+		<h3><?php echo $usuario['nome']; ?></h3>
+
+		<?php endif; ?>
+
+		<a href="#">vmsa03@gmail.com</a>
 
 		<div class="nota-geral">
 				
@@ -88,11 +117,21 @@
 
 			</div>
 
+			<?php if($usuario['avaliacao'] == ""): ?>
+
+			<p>0,0</p>
+
+			<?php else: ?>
+
 			<p>5,0</p>
+
+			<?php endif; ?>
 
 		</div>
 
 		<div class="notificacoes">
+
+			<?php if($usuario['nome'] == "" && $usuario['foto'] == ""): ?>
 
 			<div class="notificacao notificacao-vermelha" data-redirect="edit">
 				
@@ -101,6 +140,8 @@
 				<p>Alerta! termine de preencher os seus dados para poder ser achado pelos clientes.</p>
 
 			</div>
+
+			<?php endif; ?>
 
 			<div class="notificacao" data-redirect="trabalho">
 				

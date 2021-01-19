@@ -19,6 +19,15 @@ class homeController extends controller {
 
 	}
 
+	public function logout(){
+
+
+		$dados = array();
+
+		$this->loadTemplate('logout', $dados);
+
+	}
+
 	public function register(){
 
 

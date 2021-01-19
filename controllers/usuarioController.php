@@ -4,7 +4,12 @@ class usuarioController extends controller {
 	public function index(){
 
 
-		$dados = array();
+		$usuario = new Usuario();
+		$usuario->id = $_SESSION['id'];
+
+		$dados = array(
+			'usuario' => $usuario->get_dados()
+		);
 
 		$this->loadView('painel', $dados);
 
@@ -13,7 +18,12 @@ class usuarioController extends controller {
 	public function edit(){
 
 
-		$dados = array();
+		$usuario = new Usuario();
+		$usuario->id = $_SESSION['id'];
+
+		$dados = array(
+			'usuario' => $usuario->get_dados()
+		);
 
 		$this->loadTemplate('edit', $dados);
 

@@ -1,4 +1,18 @@
+	
+	<?php
+	
+		if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+			# code...
+		} else {
+			echo '
+				<script type="text/javascript">
+					window.location.href="'.BASE_URL.'";
+				</script>
+			';
+		}
 
+	?>
+	
 	<script type="text/javascript">
 		$(document).ready(function(){
 
