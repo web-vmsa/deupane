@@ -129,5 +129,20 @@ class ajaxController extends controller {
 		$this->loadView('ajax', $dados);
 
 	}
+
+	public function get_notifi() {
+
+		$dados = array();
+
+		$id_usuario = $_SESSION['id'];
+		$notifi = new Notificacao();
+		$notifi->id_usuario = $id_usuario;
+		$get = $notifi->get_notifi();
+
+		$dados['resultado'] = $get['t'];
+
+		$this->loadView('ajax', $dados);
+
+	}
 	
 }

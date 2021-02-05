@@ -212,4 +212,23 @@ $(document).ready(function(){
 
 
 
+	/* Pegas as notificações */
+	setInterval(count_notifi, 3000);
+
+
+	function count_notifi(){
+
+		$.ajax({
+			type:'POST',
+			url:raiz+'ajax/get_notifi',
+			success:function(result){
+				$("title").html('('+result+') DeuPane - Procure por mecânicos na sua região!');
+			}
+		});
+
+	}
+	/* */
+
+
+
 });
