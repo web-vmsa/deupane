@@ -144,5 +144,32 @@ class ajaxController extends controller {
 		$this->loadView('ajax', $dados);
 
 	}
+
+	public function get_all() {
+
+		$dados = array();
+
+		$id_usuario = $_SESSION['id'];
+		$notifi = new Notificacao();
+		$notifi->id_usuario = $id_usuario;
+		$get = $notifi->get_all_noti();
+
+		foreach ($get as $noti) {
+			echo '<a href="'.$noti['link'].'">
+
+				<div class="notificacao">
+					
+					<div class="tipo-noti"><img alt="Notificação" src="'.BASE_URL.'assets/images/info.svg"></div>
+
+					<p>'.$noti['msg'].' <span>- '.substr($noti['data'], 0,-8).'</span></p>
+
+				</div>
+
+			</a>';
+		}
+
+		$this->loadView('ajax', $dados);
+
+	}
 	
 }

@@ -15,7 +15,7 @@
 <html>
 <head>
 	<!-- Meta tags -->
-	<title>(2) DeuPane - Procure mecânicos na sua região!</title>
+	<title id="title">(2) DeuPane - Procure mecânicos na sua região!</title>
 	<meta name="title" content="DeuPane - Procure por mecânicos na sua região">
 	<meta name="description" content="O DeuPane é uma aplicação que busca mecânicos na sua região utilizando uma extensa base de dados.">
 	<meta name="keywords" content="Mecânicos, problemas no carro, peças de automóvel, pane no carro. ">
@@ -110,20 +110,37 @@
 		<div class="nota-geral">
 				
 			<div class="stars">
+
+				<?php if($avaliacao['t'] >= 5): ?>
 					
 				<img src="<?php echo BASE_URL; ?>assets/images/star.svg">
+
+				<?php endif; ?>
+
+				<?php if($avaliacao['t'] >= 20): ?>
+
 				<img src="<?php echo BASE_URL; ?>assets/images/star.svg">
+
+				<?php endif; ?>
+
+				<?php if($avaliacao['t'] >= 45): ?>
 				<img src="<?php echo BASE_URL; ?>assets/images/star.svg">
+
+				<?php endif; ?>
 
 			</div>
 
-			<?php if($usuario['avaliacao'] == ""): ?>
+			<?php if($avaliacao['t'] >= 45): ?>
 
-			<p>0,0</p>
+			<p>3,0</p>
 
-			<?php else: ?>
+			<?php elseif($avaliacao['t'] >= 20): ?>
 
-			<p>5,0</p>
+			<p>2,0</p>
+
+			<?php elseif($avaliacao['t'] >= 5): ?>
+
+			<p>1,0</p>
 
 			<?php endif; ?>
 
@@ -131,25 +148,21 @@
 
 		<div class="notificacoes">
 
-			<?php if($usuario['nome'] == "" && $usuario['foto'] == ""): ?>
+		<?php if($usuario['nome'] == "" && $usuario['foto'] == ""): ?>
 
-			<div class="notificacao notificacao-vermelha" data-redirect="edit">
-				
-				<div class="tipo-noti"><img alt="Notificação" src="<?php echo BASE_URL; ?>assets/images/info.svg"></div>
+			<a href="">
 
-				<p>Alerta! termine de preencher os seus dados para poder ser achado pelos clientes.</p>
+				<div class="notificacao notificacao-vermelha" data-redirect="edit">
+					
+					<div class="tipo-noti"><img alt="Notificação" src="<?php echo BASE_URL; ?>assets/images/info.svg"></div>
 
-			</div>
+					<p>Alerta! termine de preencher os seus dados para poder ser achado pelos clientes.</p>
 
-			<?php endif; ?>
+				</div>
 
-			<div class="notificacao" data-redirect="trabalho">
-				
-				<div class="tipo-noti"><img alt="Notificação" src="<?php echo BASE_URL; ?>assets/images/info.svg"></div>
+			</a>
 
-				<p>Mark, você tem um convite para trabalho! <span>- 5 min</span></p>
-
-			</div>
+		<?php endif; ?>
 
 		</div>
 

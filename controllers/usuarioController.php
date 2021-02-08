@@ -7,8 +7,12 @@ class usuarioController extends controller {
 		$usuario = new Usuario();
 		$usuario->id = $_SESSION['id'];
 
+		$avaliacao = new Avaliacao();
+		$avaliacao->id_usuario = $_SESSION['id'];
+
 		$dados = array(
-			'usuario' => $usuario->get_dados()
+			'usuario' => $usuario->get_dados(),
+			'avaliacao' => $avaliacao->get_avaliacao()
 		);
 
 		$this->loadView('painel', $dados);

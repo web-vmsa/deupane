@@ -858,6 +858,15 @@ a:hover {
     flex-direction: column;
     margin-top: 70px;
 }
+.notificacoes a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+.notificacoes a:hover {
+    text-decoration: none;
+}
 .notificacao {
     background-color: #1AD7CB;
     display: flex;

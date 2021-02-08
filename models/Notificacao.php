@@ -24,4 +24,18 @@ class Notificacao extends model {
 
 	}
 
+	public function get_all_noti(){
+
+		$sql = "SELECT * FROM notificacoes WHERE id_usuario = :id_usuario AND lido = '0' ORDER BY id DESC";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":id_usuario", $this->id_usuario);
+		$sql->execute();
+		if ($sql->rowCount() > 0) {
+			return $sql->fetchAll();
+		} else {
+			return false;
+		}
+
+	}
+
 }

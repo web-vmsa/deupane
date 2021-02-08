@@ -222,7 +222,26 @@ $(document).ready(function(){
 			type:'POST',
 			url:raiz+'ajax/get_notifi',
 			success:function(result){
-				$("title").html('('+result+') DeuPane - Procure por mecânicos na sua região!');
+				$("#title").html('('+result+') DeuPane - Procure por mecânicos na sua região!');
+			}
+		});
+
+	}
+	/* */
+
+
+
+	/* Pegas as notificações */
+	setInterval(count_all, 3000);
+
+
+	function count_all(){
+
+		$.ajax({
+			type:'POST',
+			url:raiz+'ajax/get_all',
+			success:function(result){
+				$(".notificacoes").html(result);
 			}
 		});
 
