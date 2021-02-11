@@ -43,7 +43,15 @@
 		
 		<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
 
-		<div class="buscar">	
+		<?php if($verifica == true): ?>
+
+			<div class="buscar">	
+
+		<?php else: ?>
+
+			<div class="buscar recusado">
+
+		<?php endif; ?>
 
 			<img alt="location-pin" src="<?php echo BASE_URL; ?>assets/images/location-pin.svg">
 			
@@ -53,11 +61,23 @@
 
 		<div class="actions">
 			
+			<?php if($verifica == true): ?>
+
 			<div id="n-resultados" class="n-resultados"><p>1</p></div>
 
-			<p>mecânico encontrado na sua região, deseja solicitá-lo?</p>
+			<p>Mecânico encontrado na sua região, deseja solicitá-lo?</p>
 
 			<div class="botao confirm"><p>CONFIRMAR</p></div>
+
+			<?php else: ?>
+
+			<div id="n-resultados" class="n-resultados"><p>0</p></div>
+
+			<p>Nenhum mecânico encontrado! Lamentamos o ocorrido.</p>
+
+			<div class="botao decline"><p>SAIR</p></div>
+
+			<?php endif; ?>
 
 		</div>
 
@@ -70,19 +90,19 @@
 			
 			<div class="mecanico">
 				
-				<img alt="Usuário: Mark Zuckeberg" src="<?php echo BASE_URL; ?>assets/images/IMG-20200206-WA0016.jpg">
+				<img alt="Usuário: <?php echo $verifica['nome']; ?>" src="<?php echo BASE_URL; ?>users/images/<?php echo $verifica['foto']; ?>">
 
 			</div>
 
 		</div>
 
-		<h3>Mark Zuckeberg</h3>
+		<h3><?php echo $verifica['nome']; ?></h3>
 
 		<div class="buscar">	
 
 			<img alt="loading-gif" src="<?php echo BASE_URL; ?>assets/images/loading.gif">
 			
-			<p>Esperando Mark aceitar o seu convite &#128540;</p>
+			<p>Esperando <?php echo $verifica['nome']; ?> aceitar o seu convite &#128540;</p>
 
 		</div>
 
@@ -103,7 +123,7 @@
 
 			<img alt="invitation-svg" src="<?php echo BASE_URL; ?>assets/images/invitation.svg">
 			
-			<p>Seu convite foi aceito, Mark está a caminho!</p>
+			<p>Seu convite foi aceito, <?php echo $verifica['nome']; ?> está a caminho!</p>
 
 		</div>
 
@@ -113,13 +133,13 @@
 				
 				<div class="mecanico">
 				
-					<img alt="Usuário: Mark Zuckeberg" src="<?php echo BASE_URL; ?>assets/images/IMG-20200206-WA0016.jpg">
+					<img alt="Usuário: <?php echo $verifica['nome']; ?>" src="<?php echo BASE_URL; ?>users/images/<?php echo $verifica['foto']; ?>">
 
 				</div>
 
 			</div>
 
-			<p>Mark Zuckeberg</p>
+			<p><?php echo $verifica['nome']; ?></p>
 
 			<div class="nota-geral">
 				
@@ -154,7 +174,7 @@
 
 			<img alt="invitation-svg" src="<?php echo BASE_URL; ?>assets/images/invitation.svg">
 			
-			<p>Seu convite foi recusado, Mark não está a caminho!</p>
+			<p>Seu convite foi recusado, <?php echo $verifica['nome']; ?> não está a caminho!</p>
 
 		</div>
 
@@ -164,13 +184,13 @@
 				
 				<div class="mecanico">
 				
-					<img alt="Usuário: Mark Zuckeberg" src="<?php echo BASE_URL; ?>assets/images/IMG-20200206-WA0016.jpg">
+					<img alt="Usuário: <?php echo $verifica['nome']; ?>" src="<?php echo BASE_URL; ?>users/images/<?php echo $verifica['nome']; ?>">
 
 				</div>
 
 			</div>
 
-			<p>Mark Zuckeberg</p>
+			<p><?php echo $verifica['nome']; ?></p>
 
 			<div class="botao decline"><p>SAIR</p></div>
 

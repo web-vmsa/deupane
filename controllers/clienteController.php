@@ -3,8 +3,14 @@ class clienteController extends controller {
 
 	public function index(){
 
+		$existe = new Localizacao();
+		$existe->latitude = '51,50000000';
+		$existe->longitude = '-0,10000000';
+		$verifica = $existe->get_mecanico();
 
-		$dados = array();
+		$dados = array(
+			'verifica' => $verifica
+		);
 
 		$this->loadTemplate('cliente', $dados);
 

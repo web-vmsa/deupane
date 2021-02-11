@@ -51,7 +51,7 @@
 							} else {
 								$(".convite").fadeOut(function(){
 
-									window.location.href=raiz+"cliente/compartilhe";
+									window.location.href="<?php echo BASE_URL; ?>cliente/compartilhe";
 
 								});	
 							}
