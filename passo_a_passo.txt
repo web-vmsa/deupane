@@ -1,0 +1,46 @@
+procedimentosDeuPane.com.br
+
+	/*
+	* Descobre loacalização
+	*
+	* Deve descobrir a localização do usuário, pega o cep pela latitude e longitude
+	* Exibi-a em um mapa do Maps API e descobre se há um mecânico por perto
+	*/
+
+	deupane.com.br/home
+	deupane.com.br/cliente
+
+	/*
+	* Manda convite ao mecânico
+	*
+	* Seleciona em um raio de 3 km um mecânico próximo ao cliente, e envia uma notifiação
+	* A este mecânico, ele escolhe se deseja ajudar ou não o usuário
+	*/
+
+	deupane.com.br/usuario
+	deupane.com.br/usuario/trabalho
+
+	/*
+	* Informa o resultado do convite ao cliente
+	*
+	* Se o mecânico aceitou o trabalho, ele irá receber que o convite do trabalho foi aceito
+	* Caso contrário retorna que o convite foi negado
+	*/
+
+	deupane.com.br/clinte
+
+	/*
+	* Mecânico finaliza ou cancela trabalho
+	*
+	* O mecânico após aceitar pode cancelar o trabalho ou finalizar ele caso tenha terminado
+	*/
+
+	deupane.com.br/usuario/trabalhoFinalizado
+
+	/*
+	* Cliente pode avaliar
+	*
+	* O cliente após ser ajudado, paga o mecânico e avalia ele
+	*/
+
+	deupane.com.br/cliente/avaliacao

@@ -171,5 +171,33 @@ class ajaxController extends controller {
 		$this->loadView('ajax', $dados);
 
 	}
+
+	public function avalia() {
+
+		$dados = array();
+
+		if (!empty($_POST['avaliacao'])) {
+			
+			$id_usuario = 1;
+			$avaliacao = htmlspecialchars($_POST['avaliacao']);
+			$data = date("Y/m/d");
+
+			$coment = new Avaliacao();
+			$coment->id_usuario = $id_usuario;
+			$coment->avaliacao = $avaliacao;
+			$coment->data = $data;
+			$coment->set_avaliacao();
+
+			$dados['resultado'] = 0;
+
+		} else {
+
+			$dados['resultado'] = 1;
+
+		}
+
+		$this->loadView('ajax', $dados);
+
+	}
 	
 }

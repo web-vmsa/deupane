@@ -7,7 +7,7 @@ $(document).ready(function(){
 	if (environment == "development") {
 		var raiz = "http://localhost/deupane.com.br/";
 	} else {
-		var raiz = "http://localhost/deupane.com.br/";
+		raiz = "http://localhost/deupane.com.br/";
 	}
 
 

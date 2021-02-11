@@ -3,6 +3,8 @@
 class Avaliacao extends model {
 
 	public $id_usuario;
+	public $avaliacao;
+	public $data;
 
 	public function get_avaliacao(){
 
@@ -15,6 +17,17 @@ class Avaliacao extends model {
 		} else {
 			return false;
 		}
+
+	}
+
+	public function set_avaliacao(){
+
+		$sql = "INSERT INTO avaliacoes SET id_usuario = :id_usuario, avaliacao = :avaliacao, data = :data";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(':id_usuario', $this->id_usuario);
+		$sql->bindValue(':avaliacao', $this->avaliacao);
+		$sql->bindValue(':data', $this->data);
+		$sql->execute();
 
 	}
 

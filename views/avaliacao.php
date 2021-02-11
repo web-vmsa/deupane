@@ -1,6 +1,31 @@
+	
+	<?php
+
+		if (isset($_SESSION['id_usuario']) && !empty($_SESSION['id_usuario'])) {
+			# code...
+		} else {
+
+			echo '
+				<script type="text/javascript">
+					window.location.href="'.BASE_URL.'";
+				</script>
+			';
+
+		}
+
+	?>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+
+			// Raiz
+			var environment = "development";
+
+			if (environment == "development") {
+				var raiz = "http://localhost/deupane.com.br/";
+			} else {
+				raiz = "http://localhost/deupane.com.br/";
+			}
 
 			$(".alerta").hide();
 
@@ -14,10 +39,23 @@
 
 				} else {
 
-					$(".convite").fadeOut(function(){
+					$(".alerta").hide();
 
-						window.location.href="<?php echo BASE_URL; ?>cliente/compartilhe";
+					$.ajax({
+						type:'POST',
+						url:raiz+'ajax/avalia',
+						data:{avaliacao:avaliacao},
+						success:function(result){
+							if (result == 1) {
+								$(".alerta").fadeIn().delay(6000).fadeOut();
+							} else {
+								$(".convite").fadeOut(function(){
 
+									window.location.href=raiz+"cliente/compartilhe";
+
+								});	
+							}
+						}
 					});
 
 				}
