@@ -5,7 +5,8 @@ class Trabalho extends model {
 	public $id;
 	public $id_usuario;
 	public $ip_cliente;
-	public $localizacao;
+	public $latitude;
+	public $longitude;
 	public $data;
 	public $status;
 
@@ -30,14 +31,33 @@ class Trabalho extends model {
 
 	function set_trabalho() {
 
-		$sql = "INSERT INTO trabalhos SET id_usuario = :id_usuario, ip_cliente = :ip_cliente, localizacao = :localizacao, data = :data, status = :status";
+		$sql = "INSERT INTO trabalhos SET id_usuario = :id_usuario, ip_cliente = :ip_cliente, latitude = :latitude, longitude = :longitude, data = :data, status = :status";
 		$sql = $this->db->prepare($sql);
 		$sql->bindValue(':id_usuario', $this->id_usuario);
 		$sql->bindValue(':ip_cliente', $this->ip_cliente);
-		$sql->bindValue(':localizacao', $this->localizacao);
+		$sql->bindValue(':latitude', $this->latitude);
+		$sql->bindValue(':longitude', $this->longitude);
 		$sql->bindValue(':data', $this->data);
 		$sql->bindValue(':status', $this->status);
 		$sql->execute();
+
+	}
+
+	function verifica_status() {
+
+		$sql = "SELECT * FROM trabalhos WHERE ip_cliente = :ip_cliente ORDER BY id DESC";
+		$sql = $this->db->prepare($sql);
+		$sql->bindValue(":ip_cliente", $this->ip_cliente);
+		$sql->execute();
+		if ($sql->rowCount() > 0) {
+			
+			return $sql->fetch();
+
+		} else {
+
+			return false;
+
+		}
 
 	}
 

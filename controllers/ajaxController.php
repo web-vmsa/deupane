@@ -178,7 +178,7 @@ class ajaxController extends controller {
 
 		if (!empty($_POST['avaliacao'])) {
 			
-			$id_usuario = 1;
+			$id_usuario = $_SESSION['id_usuario'];
 			$avaliacao = htmlspecialchars($_POST['avaliacao']);
 			$data = date("Y/m/d");
 
@@ -193,6 +193,63 @@ class ajaxController extends controller {
 		} else {
 
 			$dados['resultado'] = 1;
+
+		}
+
+		$this->loadView('ajax', $dados);
+
+	}
+
+	public function set_trabalho() {
+
+		$dados = array();
+
+		if (!empty($_POST['id_usuario']) && !empty($_POST['ip_cliente']) && !empty($_POST['latitude']) && !empty($_POST['longitude'])) {
+			
+			$id_usuario = $_POST['id_usuario'];
+			$ip_cliente = $_POST['ip_cliente'];
+			$latitude = $_POST['latitude'];
+			$longitude = $_POST['longitude'];
+			$data = date("Y/m/d H:i:s");
+			$status = "1";
+
+			$novo_trabalho = new Trabalho();
+			$novo_trabalho->id_usuario = $id_usuario;
+			$novo_trabalho->ip_cliente = $ip_cliente;
+			$novo_trabalho->latitude = $latitude;
+			$novo_trabalho->longitude = $longitude;
+			$novo_trabalho->data = $data;
+			$novo_trabalho->status = $status;
+			$novo_trabalho->set_trabalho();
+
+		}
+
+		$this->loadView('ajax', $dados);
+
+	}
+
+	public function verifica_job() {
+
+		$dados = array();
+
+		if (!empty($_POST['ip_cliente'])) {
+
+			$ip_cliente = $_POST['ip_cliente'];
+
+			$verificando = new Trabalho();
+			$verificando->ip_cliente = $ip_cliente;
+			$verificando = $verificando->verifica_status();
+
+			if ($verificando['status'] == 1) {
+				$dados['resultado'] = 1;
+			} elseif($verificando['status'] == 0) {
+				$dados['resultado'] = 0;
+			} elseif($verificando['status'] == 2) {
+
+				$_SESSION['id_usuario'] = $verificando['id_usuario'];
+
+				$dados['resultado'] = 2;
+			}
 
 		}
 

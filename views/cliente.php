@@ -2,6 +2,15 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 
+			// Raiz
+			var environment = "development";
+
+			if (environment == "development") {
+				var raiz = "http://localhost/deupane.com.br/";
+			} else {
+				raiz = "http://localhost/deupane.com.br/";
+			}
+
 			$(".convite").hide();
 			$(".convite-entregue").hide();
 
@@ -15,16 +24,76 @@
 
 			});
 
+			// Fica verificando o status do convite
+			function loop_verifica(){
+
+				var ip_cliente = $("#ip_cliente").val();
+
+				$.ajax({
+					type:'POST',
+					url:raiz+'ajax/verifica_job',
+					data:{ip_cliente:ip_cliente},
+					success:function(result){
+						if (result == 1) {
+
+							// code...
+
+						} else if(result == 0) {
+
+							$(".convite").fadeOut(function(){
+
+								$(".convite-recusado").fadeIn(function(){
+
+								});
+
+							});
+
+						} else if(result == 2) {
+
+							$(".convite").fadeOut(function(){
+
+								$(".convite-aceito").fadeIn().delay(10000).fadeOut(function(){
+
+									window.location.href="<?php echo BASE_URL; ?>cliente/avaliacao/";
+
+								});
+
+							});
+
+						}
+					}
+				});
+				
+			}
+
+			setInterval(loop_verifica, 3000);
+
 			$(".confirm").on("click", function(){
 
 				$(".busca").fadeOut(function(){
 
-					$(".convite").fadeIn().delay(10000).fadeOut(function(){
+					$(".convite").fadeIn(function(){
 
+						/*
 						$(".convite-aceito").fadeIn().delay(10000).fadeOut(function(){
 
 							window.location.href="<?php echo BASE_URL; ?>cliente/avaliacao/";
 
+						});
+						*/
+
+						var id_usuario = <?php echo $verifica['id']; ?>;
+						var ip_cliente = $("#ip_cliente").val();
+						var latitude = "51,50000000";
+						var longitude = "-0,10000000";
+
+						$.ajax({
+							type:'POST',
+							url:raiz+'ajax/set_trabalho',
+							data:{id_usuario:id_usuario, ip_cliente:ip_cliente, latitude:latitude, longitude:longitude},
+							success:function(result){
+								// code...
+							}
 						});
 
 						//$(".convite-recusado").fadeIn();
@@ -37,6 +106,9 @@
 
 		});
 	</script>
+
+	<!-- Ip do cliente -->
+	<input type="hidden" id="ip_cliente" name="ip_cliente" value="<?php echo $ip_cliente; ?>">
 
 	<!-- HTML -->
 	<div class="busca resultado">
@@ -144,14 +216,39 @@
 			<div class="nota-geral">
 				
 				<div class="stars">
-					
+
+					<?php if($avaliacao['t'] >= 5): ?>
+						
 					<img src="<?php echo BASE_URL; ?>assets/images/star.svg">
+
+					<?php endif; ?>
+
+					<?php if($avaliacao['t'] >= 20): ?>
+
 					<img src="<?php echo BASE_URL; ?>assets/images/star.svg">
+
+					<?php endif; ?>
+
+					<?php if($avaliacao['t'] >= 45): ?>
 					<img src="<?php echo BASE_URL; ?>assets/images/star.svg">
+
+					<?php endif; ?>
 
 				</div>
 
-				<p>5,0</p>
+				<?php if($avaliacao['t'] >= 45): ?>
+
+				<p>3,0</p>
+
+				<?php elseif($avaliacao['t'] >= 20): ?>
+
+				<p>2,0</p>
+
+				<?php elseif($avaliacao['t'] >= 5): ?>
+
+				<p>1,0</p>
+
+				<?php endif; ?>
 
 			</div>
 
@@ -184,7 +281,7 @@
 				
 				<div class="mecanico">
 				
-					<img alt="Usuário: <?php echo $verifica['nome']; ?>" src="<?php echo BASE_URL; ?>users/images/<?php echo $verifica['nome']; ?>">
+					<img alt="Usuário: <?php echo $verifica['nome']; ?>" src="<?php echo BASE_URL; ?>users/images/<?php echo $verifica['foto']; ?>">
 
 				</div>
 

@@ -8,8 +8,15 @@ class clienteController extends controller {
 		$existe->longitude = '-0,10000000';
 		$verifica = $existe->get_mecanico();
 
+		$avaliacao = new Avaliacao();
+		$avaliacao->id_usuario = $verifica['id'];
+
+		$ip_cliente = new Trabalho();
+
 		$dados = array(
-			'verifica' => $verifica
+			'verifica' => $verifica,
+			'ip_cliente' => $ip_cliente->get_client_ip(),
+			'avaliacao' => $avaliacao->get_avaliacao()
 		);
 
 		$this->loadTemplate('cliente', $dados);
