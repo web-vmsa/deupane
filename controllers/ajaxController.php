@@ -188,6 +188,8 @@ class ajaxController extends controller {
 			$coment->data = $data;
 			$coment->set_avaliacao();
 
+			session_destroy();
+
 			$dados['resultado'] = 0;
 
 		} else {
@@ -240,15 +242,21 @@ class ajaxController extends controller {
 			$verificando->ip_cliente = $ip_cliente;
 			$verificando = $verificando->verifica_status();
 
-			if ($verificando['status'] == 1) {
+			if ($verificando == true) {
+				if ($verificando['status'] == 1) {
+					$dados['resultado'] = 1;
+				} elseif($verificando['status'] == 0) {
+					$dados['resultado'] = 0;
+				} elseif($verificando['status'] == 2) {
+
+					$_SESSION['id_usuario'] = $verificando['id_usuario'];
+
+					$dados['resultado'] = 2;
+				}
+			} else {
+
 				$dados['resultado'] = 1;
-			} elseif($verificando['status'] == 0) {
-				$dados['resultado'] = 0;
-			} elseif($verificando['status'] == 2) {
-
-				$_SESSION['id_usuario'] = $verificando['id_usuario'];
-
-				$dados['resultado'] = 2;
+				
 			}
 
 		}
